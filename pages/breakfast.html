@@ -1,13 +1,57 @@
 <div ng-controller="breakfastController">
     <div class="jumbotron">
-        <h1>Breakfast</h1>
+        <h1><span style="color: #FFBF00; font: 400 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;">"Breakfast ...</span></h1>
+        <h3 align="right"> ... the first meal taken after rising from a night's sleep, most often eaten in the early morning before undertaking the day's work."</h3>
     </div>
-    <form ng-submit="addItem(newItemText)">
-        <input type="text" ng-model="newItemText"/>
-    </form>
-    <ul>
-        <li ng-repeat="(id, item) in items">{{item.text}} 
-            <a href="#" ng-click="removeItem(id)">Remove</a>
-        </li>
-    </ul>
+    <div class="form-inline">
+        <input type="text" class="form-control" ng-model="search" placeholder="Search recipe...">
+        <span class="glyphicon glyphicon-search"></span> 
+    </div>
+    <div class="page-header">
+        <ul >
+            <li style="list-style-type: none">
+                <h3>
+                    <a href="#" style="text-decoration: none;"><span class="glyphicon glyphicon-pencil"></span></a>  
+                    <a href="#" style="text-decoration: none;"> {{ search | filter: search }}  </a>
+                    <a href="#" style="text-decoration: none;" align="right"><span class="glyphicon glyphicon-remove"></span></a>   
+                </h3>
+            </li>
+        </ul>
+    </div>
+    <div id="buttonDiv">
+        <button style="font-size: 20px;" type="button" class="btn btn-default"><b><span class="glyphicon glyphicon-plus-sign"></span></b>  Add new recipe</button>
+    </div>
+    
+    <div class="jumbotron" style="background-color: white;" id="addDiv">
+        <h2>Add recipe</h2>
+        <form role="form">
+             <div class="form-group">
+                <label for="bookmarkTitle">Bookmark Title</label>
+                <input type="text" ng-model="bookmarTitle" class="form-control" id="bookmarkTitle" placeholder="Enter bookmark title">
+            </div>
+            <div class="form-group">
+                <label for="bookmarkUrl">Bookmark URL</label>
+                <input type="text" ng-model="bookmarUrl" class="form-control" id="bookmarkUrl" placeholder="Enter bookmark url">
+            </div>
+        </form>
+       <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
+       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
+    </div>
+    
+    <div class="jumbotron" style="background-color: white;" id="editDiv">
+        <h2>Edit bookmark</h2>
+
+        <form role="form">
+             <div class="form-group">
+                <label for="bookmarkTitle">Bookmark Title</label>
+                <input type="text" ng-model="bookmarTitle" class="form-control" id="bookmarkTitle" placeholder="Enter bookmark title">
+            </div>
+            <div class="form-group">
+                <label for="bookmarkUrl">Bookmark URL</label>
+                <input type="text" ng-model="bookmarUrl" class="form-control" id="bookmarkUrl" placeholder="Enter bookmark url">
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
+    </div>
 </div>
