@@ -1,0 +1,13 @@
+<div ng-controller="breakfastController">
+    <div class="jumbotron">
+        <h1>Breakfast</h1>
+    </div>
+    <form ng-submit="addItem(newItemText)">
+        <input type="text" ng-model="newItemText"/>
+    </form>
+    <ul>
+        <li ng-repeat="(id, item) in items">{{item.text}} 
+            <a href="#" ng-click="removeItem(id)">Remove</a>
+        </li>
+    </ul>
+</div>
