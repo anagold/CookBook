@@ -11,6 +11,29 @@ myApp.controller('mainCtrl', function($scope, ItemsService) {
     
     $scope.bookmarks = ItemsService.getItems();
     $scope.isUpdated = false;
+  
+    /*$scope.SignIn = function($scope) {
+        var username = $scope.user.email;
+        var password = $scope.user.password;
+        
+        var firebaseObj = null;
+        $scope.getRef = function () {
+            firebaseObj = ItemService.getRef();
+        }
+        var loginObj = $firebaseSimpleLogin(firebaseObj);
+        
+        loginObj.$login('password', {
+            email: username,
+            password: password
+        })
+        .then(function(user) {
+            // Success callback
+            console.log('Authentication successful');
+        }, function(error) {
+            // Failure callback
+            console.log('Authentication failure');
+        });
+    }*/
     
     $scope.currentCategory = null;
     function setCurrentCategory(category){

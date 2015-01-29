@@ -62,6 +62,7 @@ myApp.controller('breakfastController', function($scope, ItemsService){
    
     $scope.editForm = function (itemId) {
         idItem = itemId;
+        alert(idItem);
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
         $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
@@ -132,6 +133,7 @@ myApp.controller('lunchController', function($scope, ItemsService){
     
     $scope.editForm = function (itemId) {
         idItem = itemId;
+        alert(idItem);
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
         $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
@@ -201,6 +203,7 @@ myApp.controller('dessertController', function($scope, ItemsService){
     
     $scope.editForm = function (itemId) {
         idItem = itemId;
+        alert(idItem);
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
         $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
@@ -270,7 +273,15 @@ myApp.controller('beverageController', function($scope, ItemsService){
     
     $scope.editForm = function (itemId) {
         idItem = itemId;
+        alert(idItem);
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
         $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
 });
+
+// -------------------
+// ------ Home -------
+/* -------------------
+myApp.controller('homeController', function($scope, ItemService) {
+    
+});*/

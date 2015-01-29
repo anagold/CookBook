@@ -4,16 +4,15 @@
         <h3 class="smallLogoSubPage"> ... the first meal taken after rising from a night's sleep, most often eaten in the early morning before undertaking the day's work."</h3>
     </div>
     
-    <!--- SEARCH DIV ------------>
-    <div class="form-inline">
-        <input type="text" class="form-control" ng-model="search.category" placeholder="Search recipe...">
-        <span class="glyphicon glyphicon-search"></span> 
+    <!--- TITLE DIV ------------>
+    <div class="page-header">
+        <h4><span class="glyphicon glyphicon-list-alt"></span> Your recipie list:</h4>
     </div>
     
     <!--- LIST OF ELEMENTS ------------>
     <div class="page-header">
         <ul >
-            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: {category: currentCategory.name} ">
+            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: {category: currentCategory.name}">
                 <label for="linkStyle">
                     <button type="button" class="btn btn-default" ng-click="editForm(id); showEditing()" ><span class="glyphicon glyphicon-pencil" ></span></button>
                     <button type="button" class="btn btn-default" ng-click="cancelEditing(); removeItem(id)">&times;</button>
@@ -41,7 +40,7 @@
                 <input type="text" ng-model="bookmarkUrl" class="form-control" id="bookmarkUrl" placeholder="{{placeHolderUrl}}">
             </div>
         </form>
-       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitle, bookmarkUrl); cancelCreating(); resetForm()"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
+       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitle, bookmarkUrl, itemId+1); cancelCreating(); resetForm()"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
        <button type="button" class="btn btn-default" ng-click="cancelCreating(); resetForm()"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
     </div>
     

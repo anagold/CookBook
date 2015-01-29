@@ -7,6 +7,10 @@ myApp.factory('ItemsService', function($firebase) {
         return bookmarks;
     };
     
+    var getRef = function() {
+        return ref
+    }
+    
     var addItem = function(item) {
         bookmarks.$add(item);
     };
@@ -21,6 +25,7 @@ myApp.factory('ItemsService', function($firebase) {
     
     return {
         getItems: getItems,
+        getRef: getRef,
         addItem: addItem,
         removeItem: removeItem,
         upadeItem: updateItem

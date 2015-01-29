@@ -1,0 +1,16 @@
+<div ng-controller="mainCtrl">
+    <div class="jumbotron">
+        <h1><span class="logoSubPage">Home ...</span></h1>
+        <h3 class="smallLogoSubPage"> ... place where you can sign up to your own CookBook!</h3>
+    </div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-4 jumbotron" id="addDiv" >
+            <form class="form-signin" role="form">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email address" required="" autofocus=""><p></p>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required=""><p></p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="SignIn($event)">Sign in</button>
+          </form>
+    </div>
+</div>
