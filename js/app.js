@@ -8,6 +8,7 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     $scope.bookmarks = ItemsService.getItems();
     $scope.isUpdated = false;
     $scope.category = "breakfast";
+    $scope.idItem = 0;
     
     $scope.addItem = function(title, url) {
         ItemsService.addItem({
@@ -20,8 +21,10 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     $scope.removeItem = function (id) {
         ItemsService.removeItem(id);
     };
-    $scope.updateItem = function (id) {
-        ItemsService.upadeItem(id);
+    $scope.updateItem = function() {
+        $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
+        ItemsService.upadeItem(idItem);
     };
     
     
@@ -58,8 +61,9 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     };
     
     $scope.editForm = function (itemId) {
+        idItem = itemId;
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
-        $scope.bookmarkUrl =  $scope.bookmarks[itemId].url;  
+        $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
 });
 
