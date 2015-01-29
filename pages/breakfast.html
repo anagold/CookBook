@@ -14,49 +14,51 @@
     <div class="page-header">
         <ul >
             <li style="list-style-type: none" ng-repeat="(id, bookmark) in bookmarks | filter: bookmark.category: category">
-                <h3>
-                    <a href="#" style="text-decoration: none;"><span class="glyphicon glyphicon-pencil"></span></a>  
-                    <a href="#{{bookmark.url}}" style="text-decoration: none;"> {{ bookmark.title }} </a>
-                    <a href="#" style="text-decoration: none;" align="right" ng-click="removeItem(id)"><span class="glyphicon glyphicon-remove"></span></a>   
-                </h3>
+                <label for="listEl">
+                    <button type="button" class="btn btn-default" ng-click="editForm(id); showEditing()" ><span class="glyphicon glyphicon-pencil" ></span></button>
+                    <button type="button" class="btn btn-default" ng-click="removeItem(id)">&times;</button>
+                </label>
+                <a href="#{{bookmark.url}}" style="text-decoration: none; font-size:20px; padding-left: 20px;" id="listEl"> {{ "    " + bookmark.title | filter: search }} </a>
             </li>
         </ul>
     </div>
     <div id="buttonDiv">
-        <button style="font-size: 20px;" type="button" class="btn btn-default"><b><span class="glyphicon glyphicon-plus-sign"></span></b>  Add new recipe</button>
+        <button style="font-size: 20px;" type="button" class="btn btn-default" ng-click="resetForm(); showCreating()">
+            <b><span class="glyphicon glyphicon-plus-sign"></span></b>  Add new recipe
+        </button>
     </div>
     
     <!--- ADD DIV ------------>
-    <div class="jumbotron" id="addDiv" style="background-color: white;">
+    <div class="jumbotron" id="addDiv" style="background-color: white;" ng-hide="hideCreate">
         <h2>Add recipe</h2>
         <form role="form">
              <div class="form-group">
                 <label for="bookmarkTitle">Bookmark Title</label>
-                <input type="text" ng-model="bookmarkTitle" class="form-control" id="bookmarkTitle" placeholder="Enter bookmark title">
+                <input type="text" ng-model="bookmarkTitle" class="form-control" id="bookmarkTitle" placeholder="{{placeHolderTitle}}">
             </div>
             <div class="form-group">
                 <label for="bookmarkUrl">Bookmark URL</label>
-                <input type="text" ng-model="bookmarkUrl" class="form-control" id="bookmarkUrl" placeholder="Enter bookmark url">
+                <input type="text" ng-model="bookmarkUrl" class="form-control" id="bookmarkUrl" placeholder="{{placeHolderUrl}}">
             </div>
         </form>
-       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitle, bookmarkUrl)"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
-       <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
+       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitle, bookmarkUrl); cancelCreating(); resetForm()"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
+       <button type="button" class="btn btn-default" ng-click="cancelCreating(); resetForm()"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
     </div>
     
     <!--- EDIT DIV ------------>
-    <div class="jumbotron"  id="editDiv" style="background-color: white;">
+    <div class="jumbotron"  id="editDiv" style="background-color: white;" ng-hide="hideEdit">
         <h2>Edit bookmark</h2>
         <form role="form">
              <div class="form-group">
                 <label for="bookmarkTitle">Bookmark Title</label>
-                <input type="text" ng-model="bookmarTitle" class="form-control" id="bookmarkTitle" placeholder="Enter bookmark title">
+                <input type="text" ng-model="bookmarTitle" class="form-control" id="bookmarkTitle" placeholder="{{bookmarkTitle}}">
             </div>
             <div class="form-group">
                 <label for="bookmarkUrl">Bookmark URL</label>
-                <input type="text" ng-model="bookmarUrl" class="form-control" id="bookmarkUrl" placeholder="Enter bookmark url">
+                <input type="text" ng-model="bookmarUrl" class="form-control" id="bookmarkUrl" placeholder="{{bookmarkUrl}}">
             </div>
         </form>
         <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
-        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
+        <button type="button" class="btn btn-default" ng-click="cancelEditing(); resetForm()"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
     </div>
 </div>

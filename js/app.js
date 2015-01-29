@@ -13,7 +13,7 @@ myApp.controller('breakfastController', function($scope, ItemsService){
         ItemsService.addItem({
             title: title,
             url: url,
-            category: "breakfast"
+            category: $scope.category
         });
     };
     
@@ -23,5 +23,43 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     $scope.updateItem = function (id) {
         ItemsService.upadeItem(id);
     };
+    
+    
+    $scope.hideEdit = true;
+    $scope.hideCreate = true;
+    
+    $scope.showEditing = function() {
+        $scope.hideEdit = false;
+        $scope.hideCreate = true;
+        
+    };
+    
+    $scope.showCreating = function() {
+        $scope.hideEdit = true;
+        $scope.hideCreate = false;
+    };
+    
+    $scope.cancelEditing = function() {
+        $scope.hideEdit = true;
+        $scope.hideCreate = true;
+    };
+    
+    $scope.cancelCreating = function() {
+        $scope.hideEdit = true;
+        $scope.hideCreate = true;
+    };
+    
+    
+    $scope.placeHolderTitle = "Enter bookmark title...";
+    $scope.placeHolderUrl = "Enter bookmark url...";
+    $scope.resetForm = function () {
+        $scope.bookmarkTitle = "";
+        $scope.bookmarkUrl = "";
+    };
+    
+    $scope.editForm = function (itemId) {
+        $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
+        $scope.bookmarkUrl =  $scope.bookmarks[itemId].url;  
+    };
 });
- 
+
