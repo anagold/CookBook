@@ -27,6 +27,9 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     };
     $scope.updateItem = function() {
         $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        if(!(/^http:\/\//.test($scope.bookmarkUrl))){
+            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
+        }
         $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
         ItemsService.upadeItem(idItem);
     };
