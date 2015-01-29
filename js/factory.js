@@ -26,3 +26,4 @@ myApp.factory('ItemsService', function($firebase) {
         upadeItem: updateItem
     }
 })
+

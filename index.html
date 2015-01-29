@@ -20,11 +20,9 @@
                         </p>
                     </div>
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#" id="menu"><span class="glyphicon glyphicon-home"></span>    Home</a></li>
-                        <li><a href="#breakfast" id="menu"><span class="glyphicon glyphicon-apple"></span>    Breakfast</a></li>
-                        <li><a href="#" id="menu"><span class="glyphicon glyphicon-cutlery"></span>    Lunch</a></li>
-                        <li><a href="#" id="menu"><span class="glyphicon glyphicon-ice-lolly-tasted"></span>    Dessert</a></li>
-                        <li><a href="#" id="menu"><span class="glyphicon glyphicon-glass"></span>    Beverage</a></li>
+                        <li ng-repeat="category in categories">
+                            <a href="{{category.url}}" ng-click="setCurrentCategory(category)"  id="menu"><span class="glyphicon {{category.icon}}"></span>{{ "    " + category.name}}</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-10">
@@ -41,6 +39,7 @@
         <script src="bower_components/angularfire/dist/angularfire.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/controllers.js"></script>
         <script src="js/route.js"></script>
         <script src="js/factory.js"></script>
     </body>
