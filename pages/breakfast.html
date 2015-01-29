@@ -18,7 +18,7 @@
                     <button type="button" class="btn btn-default" ng-click="editForm(id); showEditing()" ><span class="glyphicon glyphicon-pencil" ></span></button>
                     <button type="button" class="btn btn-default" ng-click="removeItem(id)">&times;</button>
                 </label>
-                <a href="#{{bookmark.url}}" style="text-decoration: none; font-size:20px; padding-left: 20px;" id="listEl"> {{ "    " + bookmark.title | filter: search }} </a>
+               <a ng-controller="openTab" style="text-decoration: none; font-size:20px; padding-left: 20px;" id="listEl" ng-click="openTab(id, bookmark.url)">{{ "    " + bookmark.title | filter: search }}</ba>
             </li>
         </ul>
     </div>

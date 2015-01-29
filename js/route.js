@@ -4,4 +4,5 @@ myApp.config(function($routeProvider) {
             templateUrl: 'pages/breakfast.html',
             controller: 'breakfastController'
         })
+      
 });

@@ -11,6 +11,10 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     $scope.idItem = 0;
     
     $scope.addItem = function(title, url) {
+        if(!(/^http:\/\//.test(url))){
+            url = "http://" + url;
+        }
+    
         ItemsService.addItem({
             title: title,
             url: url,
@@ -34,7 +38,6 @@ myApp.controller('breakfastController', function($scope, ItemsService){
     $scope.showEditing = function() {
         $scope.hideEdit = false;
         $scope.hideCreate = true;
-        
     };
     
     $scope.showCreating = function() {
@@ -65,5 +68,13 @@ myApp.controller('breakfastController', function($scope, ItemsService){
         $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
         $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
     };
+    
 });
 
+myApp.controller('openTab', ['$scope', '$window',
+    function($scope, $window) {
+        $scope.openTab = function(id, bookmarkUrl){
+            $window.open(bookmarkUrl);
+        };
+    }
+]);
