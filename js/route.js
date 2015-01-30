@@ -2,7 +2,7 @@ myApp.config(function($routeProvider) {
     $routeProvider
         .when( '/home', {
             templateUrl: 'pages/home.html',
-            controller: 'mainCtrl'
+            controller: 'homeController'
         })
         .when( '/breakfast', {
             templateUrl: 'pages/breakfast.html',

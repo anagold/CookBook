@@ -8,10 +8,13 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
         {"id": 3, "url": "#dessert", "name": "Dessert", "icon": "glyphicon-ice-lolly-tasted"},
         {"id": 4, "url": "#beverage", "name": "Beverage", "icon": "glyphicon-glass"}
     ];
-    
+
+    $scope.placeHolderTitle = "Enter bookmark title...";
+    $scope.placeHolderUrl = "Enter bookmark url...";
     $scope.bookmarks = ItemsService.getItems();
     $scope.isUpdated = false;
     $scope.itemId = null;
+   
     /*$scope.SignIn = function($scope) {
         var username = $scope.user.email;
         var password = $scope.user.password;
@@ -35,24 +38,30 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
         });
     }*/
     
-        
-    $scope.placeHolderTitle = "Enter bookmark title...";
-    $scope.placeHolderUrl = "Enter bookmark url...";
+    // --- SHOW AND HIDE DIVS IN INDEX ---
+    $scope.hideSign = true;
+    $scope.hideRegi = true;
     
-    $scope.currentCategory = null;
-    function setCurrentCategory(category){
-        $scope.currentCategory = category;
-    }
-    $scope.setCurrentCategory = setCurrentCategory;
-    $scope.test = function (id) {
-        alert(id);
-        if ( bookCat === setCurrentCategory ) {
-            return true;
-        }else{
-            return false;
-        };
-    }
+    $scope.showSign = function() {
+        $scope.placeHolderTitle = "Enter bookmark title...";
+        $scope.placeHolderUrl = "Enter bookmark url...";
+        $scope.hideSign = false;
+        $scope.hideRegi = true;
+    };
     
+    $scope.showRegi = function() {
+        $scope.placeHolderTitle = "Enter bookmark title...";
+        $scope.placeHolderUrl = "Enter bookmark url...";
+        $scope.hideSign = true;
+        $scope.hideRegi = false;
+    };
+    
+    $scope.cancelReSi = function() {
+        $scope.hideSign = true;
+        $scope.hideRegi = true;
+    };
+    
+    // --- SHOW AND HIDE DIVS IN SUBPAGE ---
     $scope.hideEdit = true;
     $scope.hideCreate = true;
     
@@ -77,16 +86,17 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
         $scope.hideEdit = true;
         $scope.hideCreate = true;
     };
-
+    
+    // --- SET FIELD FORMS ---
     $scope.resetForm = function () {
-        $scope.bookmarkTitle = "";
-        $scope.bookmarkUrl = "";
+        $scope.bookmarkTitleAdd = "";
+        $scope.bookmarkUrlAdd = "";
     };
-   
+    
     $scope.editForm = function (id, bmT, bmU) {
         $scope.itemId = id;
-        $scope.bookmarkTitle = bmT;
-        $scope.bookmarkUrl = bmU;  
+        $scope.bookmarkTitleEdit = bmT;
+        $scope.bookmarkUrlEdit = bmU;  
     };
 });
 

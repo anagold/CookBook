@@ -9,12 +9,17 @@
         <h4><span class="glyphicon glyphicon-list-alt"></span> Your recipie list:</h4>
     </div>
     
+    <!--- SEARCH ------------>
+    <div class="form-inline">
+        <input type="text" class="form-control" ng-model="search" placeholder="Search recipe...">
+        <span class="glyphicon glyphicon-search"></span> 
+    </div>
+    
     <!--- LIST OF ELEMENTS ------------>
     <div class="page-header">
         <ul >
-            <!--<li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: {category: currentCategory.name}">-->
-            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks">
-                <label for="linkStyle">
+            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: search">
+                <label for="linkStyle"> 
                     <button type="button" class="btn btn-default" ng-click="resetForm(); editForm(id, bookmark.title, bookmark.url); showEditing()" ><span class="glyphicon glyphicon-pencil" ></span></button>
                     <button type="button" class="btn btn-default" ng-click="cancelEditing(); removeItem(id)">&times;</button>
                 </label>
@@ -34,14 +39,14 @@
         <form role="form">
              <div class="form-group">
                 <label for="bookmarkTitle">Bookmark Title</label>
-                <input type="text" ng-model="bookmarkTitle" class="form-control" id="bookmarkTitle" placeholder="{{placeHolderTitle}}">
+                <input type="text" ng-model="bookmarkTitleAdd" class="form-control" id="bookmarkTitle" placeholder="{{placeHolderTitle}}">
             </div>
             <div class="form-group">
                 <label for="bookmarkUrl">Bookmark URL</label>
-                <input type="text" ng-model="bookmarkUrl" class="form-control" id="bookmarkUrl" placeholder="{{placeHolderUrl}}">
+                <input type="text" ng-model="bookmarkUrlAdd" class="form-control" id="bookmarkUrl" placeholder="{{placeHolderUrl}}">
             </div>
         </form>
-       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitle, bookmarkUrl); cancelCreating(); resetForm()"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
+       <button type="button" class="btn btn-primary" ng-click="addItem(bookmarkTitleAdd, bookmarkUrlAdd); cancelCreating(); resetForm()"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>
        <button type="button" class="btn btn-default" ng-click="cancelCreating(); resetForm()"><span class="glyphicon glyphicon-remove-sign"></span>  Cancel</button>
     </div>
     
@@ -51,11 +56,11 @@
         <form role="form">
              <div class="form-group">
                 <label for="bookmarkTitle">Bookmark Title</label>
-                <input type="text" ng-model="bookmarkTitle" class="form-control" id="bookmarkTitle" placeholder="{{bookmark.title}}">
+                <input type="text" ng-model="bookmarkTitleEdit" class="form-control" id="bookmarkTitle" placeholder="{{bookmark.title}}">
             </div>
             <div class="form-group">
                 <label for="bookmarkUrl">Bookmark URL</label>
-                <input type="text" ng-model="bookmarkUrl" class="form-control" id="bookmarkUrl" placeholder="{{bookmark.url}}">
+                <input type="text" ng-model="bookmarkUrlEdit" class="form-control" id="bookmarkUrl" placeholder="{{bookmark.url}}">
             </div>
         </form>
         <button type="button" class="btn btn-primary" ng-click="updateItem(); cancelEditing();"><span class="glyphicon glyphicon-ok-sign"></span>  Save</button>

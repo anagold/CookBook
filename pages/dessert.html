@@ -9,11 +9,16 @@
         <h4><span class="glyphicon glyphicon-list-alt"></span> Your recipie list:</h4>
     </div>
     
+    <!--- SEARCH ------------>
+    <div class="form-inline">
+        <input type="text" class="form-control" ng-model="search" placeholder="Search recipe...">
+        <span class="glyphicon glyphicon-search"></span> 
+    </div>
+    
     <!--- LIST OF ELEMENTS ------------>
     <div class="page-header">
         <ul >
-            <!--<li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: {category: currentCategory.name} ">-->
-            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks">
+            <li class="listStyle" ng-repeat="(id, bookmark) in bookmarks | filter: search">
                 <label for="linkStyle">
                     <button type="button" class="btn btn-default" ng-click="resetForm(); editForm(id, bookmark.title, bookmark.url); showEditing()" ><span class="glyphicon glyphicon-pencil" ></span></button>
                     <button type="button" class="btn btn-default" ng-click="cancelEditing(); removeItem(id)">&times;</button>

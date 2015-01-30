@@ -21,11 +21,11 @@ myApp.controller('breakfastController', function($scope, ItemsServiceBS){
     };
     
     $scope.updateItem = function() {
-        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitleEdit;
         if(!(/^http:\/\//.test($scope.bookmarkUrl))){
-            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
+            $scope.bookmarkUrlEdit = "http://" + $scope.bookmarkUrl;
         }
-        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrlEdit;
         ItemsServiceBS.upadeItem($scope.itemId);
     };
 });
@@ -60,7 +60,6 @@ myApp.controller('lunchController', function($scope, ItemsServiceLU){
         $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
         ItemsServiceLU.upadeItem($scope.itemId);
     };
-    
 });
 
 // -------------------
@@ -125,12 +124,11 @@ myApp.controller('beverageController', function($scope, ItemsServiceBV){
         $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
         ItemsServiceBV.upadeItem($scope.itemId);
     };
-    
 });
 
 // -------------------
 // ------ Home -------
-/* -------------------
+// -------------------
 myApp.controller('homeController', function($scope, ItemService) {
-    
-});*/
+   
+});

@@ -28,6 +28,9 @@ myApp.factory('ItemsService', function($firebase) {
     }
 })
 
+// -------------------
+// ---- Breakfast ----
+// -------------------
 myApp.factory('ItemsServiceBS', function($firebase) {
     var ref = new Firebase("https://anagold.firebaseio.com/breakfast/");
     var sync = $firebase(ref);
@@ -58,6 +61,9 @@ myApp.factory('ItemsServiceBS', function($firebase) {
     }
 })
 
+// -------------------
+// ------ Lunch ------
+// -------------------
 myApp.factory('ItemsServiceLU', function($firebase) {
     var ref = new Firebase("https://anagold.firebaseio.com/lunch/");
     var sync = $firebase(ref);
@@ -88,6 +94,9 @@ myApp.factory('ItemsServiceLU', function($firebase) {
     }
 })
 
+// -------------------
+// ----- Dessert -----
+// -------------------
 myApp.factory('ItemsServiceDS', function($firebase) {
     var ref = new Firebase("https://anagold.firebaseio.com/dessert/");
     var sync = $firebase(ref);
@@ -118,6 +127,9 @@ myApp.factory('ItemsServiceDS', function($firebase) {
     }
 })
 
+// -------------------
+// ---- Beverage -----
+// -------------------
 myApp.factory('ItemsServiceBV', function($firebase) {
     var ref = new Firebase("https://anagold.firebaseio.com/beverage/");
     var sync = $firebase(ref);
