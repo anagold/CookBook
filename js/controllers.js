@@ -1,87 +1,48 @@
 // -------------------
 // ---- Breakfast ----
 // -------------------
-myApp.controller('breakfastController', function($scope, ItemsService){
+myApp.controller('breakfastController', function($scope, ItemsServiceBS){
     $scope.category = "Breakfast";
-    $scope.idItem = 0;
+    $scope.bookmarks = ItemsServiceBS.getItems();
     
-    $scope.addItem = function(title, url) {
+    $scope.addItem = function(title, url, id) {
         if(!(/^http:\/\//.test(url))){
             url = "http://" + url;
         }
-    
-        ItemsService.addItem({
+        ItemsServiceBS.addItem({
             title: title,
             url: url,
             category: $scope.category
-        });
+        }, "breakfast");
     };
     
     $scope.removeItem = function (id) {
-        ItemsService.removeItem(id);
+        ItemsServiceBS.removeItem(id);
     };
+    
     $scope.updateItem = function() {
-        $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
         if(!(/^http:\/\//.test($scope.bookmarkUrl))){
             $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
         }
-        $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
-        ItemsService.upadeItem(idItem);
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        ItemsServiceBS.upadeItem($scope.itemId);
     };
-    
-    $scope.hideEdit = true;
-    $scope.hideCreate = true;
-    
-    $scope.showEditing = function() {
-        $scope.hideEdit = false;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.showCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = false;
-    };
-    
-    $scope.cancelEditing = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.cancelCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    
-    $scope.placeHolderTitle = "Enter bookmark title...";
-    $scope.placeHolderUrl = "Enter bookmark url...";
-    $scope.resetForm = function () {
-        $scope.bookmarkTitle = "";
-        $scope.bookmarkUrl = "";
-    };
-   
-    $scope.editForm = function (itemId) {
-        idItem = itemId;
-        alert(idItem);
-        $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
-        $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
-    };
-    
 });
 
 // -------------------
 // ------ Lunch ------
 // -------------------
-myApp.controller('lunchController', function($scope, ItemsService){
+myApp.controller('lunchController', function($scope, ItemsServiceLU){
     $scope.category = "Lunch";
-    $scope.idItem = 0;
+    $scope.bookmarks = ItemsServiceLU.getItems();
     
     $scope.addItem = function(title, url) {
         if(!(/^http:\/\//.test(url))){
             url = "http://" + url;
         }
     
-        ItemsService.addItem({
+        ItemsServiceLU.addItem({
             title: title,
             url: url,
             category: $scope.category
@@ -89,69 +50,32 @@ myApp.controller('lunchController', function($scope, ItemsService){
     };
     
     $scope.removeItem = function (id) {
-        ItemsService.removeItem(id);
+        ItemsServiceLU.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
         if(!(/^http:\/\//.test($scope.bookmarkUrl))){
             $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
         }
-        $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
-        ItemsService.upadeItem(idItem);
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        ItemsServiceLU.upadeItem($scope.itemId);
     };
     
-    $scope.hideEdit = true;
-    $scope.hideCreate = true;
-    
-    $scope.showEditing = function() {
-        $scope.hideEdit = false;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.showCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = false;
-    };
-    
-    $scope.cancelEditing = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.cancelCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    
-    $scope.placeHolderTitle = "Enter bookmark title...";
-    $scope.placeHolderUrl = "Enter bookmark url...";
-    $scope.resetForm = function () {
-        $scope.bookmarkTitle = "";
-        $scope.bookmarkUrl = "";
-    };
-    
-    $scope.editForm = function (itemId) {
-        idItem = itemId;
-        alert(idItem);
-        $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
-        $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
-    };
 });
 
 // -------------------
 // ----- Dessert -----
 // -------------------
-myApp.controller('dessertController', function($scope, ItemsService){
+myApp.controller('dessertController', function($scope, ItemsServiceDS){
     $scope.category = "Dessert";
-    $scope.idItem = 0;
+    $scope.bookmarks = ItemsServiceDS.getItems();
     
     $scope.addItem = function(title, url) {
         if(!(/^http:\/\//.test(url))){
             url = "http://" + url;
         }
     
-        ItemsService.addItem({
+        ItemsServiceDS.addItem({
             title: title,
             url: url,
             category: $scope.category
@@ -159,69 +83,31 @@ myApp.controller('dessertController', function($scope, ItemsService){
     };
     
     $scope.removeItem = function (id) {
-        ItemsService.removeItem(id);
+        ItemsServiceDS.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
         if(!(/^http:\/\//.test($scope.bookmarkUrl))){
             $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
         }
-        $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
-        ItemsService.upadeItem(idItem);
-    };
-    
-    $scope.hideEdit = true;
-    $scope.hideCreate = true;
-    
-    $scope.showEditing = function() {
-        $scope.hideEdit = false;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.showCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = false;
-    };
-    
-    $scope.cancelEditing = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.cancelCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    
-    $scope.placeHolderTitle = "Enter bookmark title...";
-    $scope.placeHolderUrl = "Enter bookmark url...";
-    $scope.resetForm = function () {
-        $scope.bookmarkTitle = "";
-        $scope.bookmarkUrl = "";
-    };
-    
-    $scope.editForm = function (itemId) {
-        idItem = itemId;
-        alert(idItem);
-        $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
-        $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        ItemsServiceDS.upadeItem($scope.itemId);
     };
 });
 
 // -------------------
 // ---- Beverage -----
 // -------------------
-myApp.controller('beverageController', function($scope, ItemsService){
+myApp.controller('beverageController', function($scope, ItemsServiceBV){
     $scope.category = "Beverage";
-    $scope.idItem = 0;
-    
+    $scope.bookmarks = ItemsServiceBV.getItems();
+
     $scope.addItem = function(title, url) {
         if(!(/^http:\/\//.test(url))){
             url = "http://" + url;
         }
-    
-        ItemsService.addItem({
+        
+        ItemsServiceBV.addItem({
             title: title,
             url: url,
             category: $scope.category
@@ -229,54 +115,17 @@ myApp.controller('beverageController', function($scope, ItemsService){
     };
     
     $scope.removeItem = function (id) {
-        ItemsService.removeItem(id);
+        ItemsServiceBV.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[idItem].title = $scope.bookmarkTitle;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
         if(!(/^http:\/\//.test($scope.bookmarkUrl))){
             $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
         }
-        $scope.bookmarks[idItem].url = $scope.bookmarkUrl;
-        ItemsService.upadeItem(idItem);
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        ItemsServiceBV.upadeItem($scope.itemId);
     };
     
-    $scope.hideEdit = true;
-    $scope.hideCreate = true;
-    
-    $scope.showEditing = function() {
-        $scope.hideEdit = false;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.showCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = false;
-    };
-    
-    $scope.cancelEditing = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    $scope.cancelCreating = function() {
-        $scope.hideEdit = true;
-        $scope.hideCreate = true;
-    };
-    
-    
-    $scope.placeHolderTitle = "Enter bookmark title...";
-    $scope.placeHolderUrl = "Enter bookmark url...";
-    $scope.resetForm = function () {
-        $scope.bookmarkTitle = "";
-        $scope.bookmarkUrl = "";
-    };
-    
-    $scope.editForm = function (itemId) {
-        idItem = itemId;
-        alert(idItem);
-        $scope.bookmarkTitle = $scope.bookmarks[itemId].title;
-        $scope.bookmarkUrl = $scope.bookmarks[itemId].url;  
-    };
 });
 
 // -------------------
