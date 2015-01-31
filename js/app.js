@@ -11,10 +11,26 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
 
     $scope.placeHolderTitle = "Enter bookmark title...";
     $scope.placeHolderUrl = "Enter bookmark url...";
-    $scope.bookmarks = ItemsService.getItems();
+
     $scope.isUpdated = false;
     $scope.itemId = null;
-   
+    
+    // --- AUTHORIZATION ---
+    $scope.register = function () {
+        var ref = new Firebase("https://anagold.firebaseio.com/");
+        ref.createUser({
+            emial: $scope.email,
+            password: $scope.password
+        }, function(error) {
+            if (error === null) {
+                console.log("User created successfully");
+            } else {
+                console.log("Error creating user: ", error);
+            }
+        });
+    };
+    
+    
     /*$scope.SignIn = function($scope) {
         var username = $scope.user.email;
         var password = $scope.user.password;
@@ -43,15 +59,11 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     $scope.hideRegi = true;
     
     $scope.showSign = function() {
-        $scope.placeHolderTitle = "Enter bookmark title...";
-        $scope.placeHolderUrl = "Enter bookmark url...";
         $scope.hideSign = false;
         $scope.hideRegi = true;
     };
     
     $scope.showRegi = function() {
-        $scope.placeHolderTitle = "Enter bookmark title...";
-        $scope.placeHolderUrl = "Enter bookmark url...";
         $scope.hideSign = true;
         $scope.hideRegi = false;
     };
@@ -71,8 +83,6 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     };
     
     $scope.showCreating = function() {
-        $scope.placeHolderTitle = "Enter bookmark title...";
-        $scope.placeHolderUrl = "Enter bookmark url...";
         $scope.hideEdit = true;
         $scope.hideCreate = false;
     };
@@ -85,18 +95,6 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     $scope.cancelCreating = function() {
         $scope.hideEdit = true;
         $scope.hideCreate = true;
-    };
-    
-    // --- SET FIELD FORMS ---
-    $scope.resetForm = function () {
-        $scope.bookmarkTitleAdd = "";
-        $scope.bookmarkUrlAdd = "";
-    };
-    
-    $scope.editForm = function (id, bmT, bmU) {
-        $scope.itemId = id;
-        $scope.bookmarkTitleEdit = bmT;
-        $scope.bookmarkUrlEdit = bmU;  
     };
 });
 

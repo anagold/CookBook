@@ -22,7 +22,7 @@
                     <div class="row">
                         <ul class="nav nav-pills nav-stacked">
                             <li ng-repeat="category in categories">
-                                <a href="{{category.url}}"  id="menu"><span class="glyphicon {{category.icon}}"></span>{{ "    " + category.name}}</a>
+                                <a href="{{category.url}}" id="menu"><span class="glyphicon {{category.icon}}"></span>{{ "    " + category.name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -39,16 +39,16 @@
                     <div class="row jumbotron" ng-hide="hideRegi">
                         <form class="form-signin" role="form">
                             <label for="emailRegi">Email</label>
-                            <input type="email" class="form-control" id="emailRegi" placeholder="Email address"  autofocus=""><p></p>
+                            <input type="email" class="form-control" ng-model="email" id="emailRegi" placeholder="Email address"  autofocus=""><p></p>
                             <label for="passwordRegi">Password</label>
-                            <input type="password" class="form-control" id="passwordRegi" placeholder="Password" ><p></p>
+                            <input type="password" class="form-control" ng-model="password" id="passwordRegi" placeholder="Password" ><p></p>
                             <label for="confirmRegi">Confirm password</label>
                             <input type="password" class="form-control" id="confirmRegi" placeholder="Confirm password" ><p></p>
                             <div class="col-lg-6">
-                                <button class="btn btn-sm btn-success btn-block" type="submit" ng-click="SignIn($event)">Register</button>
+                                <button class="btn btn-sm btn-success btn-block" type="submit" ng-click="register()">Register</button>
                             </div>
                             <div class="col-lg-6">
-                                <button class="btn btn-sm btn-default btn-block">Cancel</button>
+                                <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
                             </div>
                         </form>
                     </div> 
@@ -59,10 +59,10 @@
                             <label for="passwordSign">Password</label>
                             <input type="password" class="form-control" id="passwordSign" placeholder="Password" ><p></p>
                             <div class="col-lg-6">
-                                <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="SignIn($event)">Sign in</button>
+                                <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="">Sign in</button>
                             </div>
                             <div class="col-lg-6">
-                                <button class="btn btn-sm btn-default btn-block">Cancel</button>
+                                <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -75,6 +75,7 @@
                     </div> 
                 </div>
             </div>
+          
         </div>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>

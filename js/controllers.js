@@ -6,7 +6,7 @@ myApp.controller('breakfastController', function($scope, ItemsServiceBS){
     $scope.bookmarks = ItemsServiceBS.getItems();
     
     $scope.addItem = function(title, url, id) {
-        if(!(/^http:\/\//.test(url))){
+        if (!/^(f|ht)tps?:\/\//i.test(url)) {
             url = "http://" + url;
         }
         ItemsServiceBS.addItem({
@@ -22,11 +22,23 @@ myApp.controller('breakfastController', function($scope, ItemsServiceBS){
     
     $scope.updateItem = function() {
         $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitleEdit;
-        if(!(/^http:\/\//.test($scope.bookmarkUrl))){
-            $scope.bookmarkUrlEdit = "http://" + $scope.bookmarkUrl;
+        if (!/^(f|ht)tps?:\/\//i.test($scope.bookmarkUrlEdit)) {
+            $scope.bookmarkUrlEdit = "http://" + $scope.bookmarkUrlEdit;
         }
         $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrlEdit;
         ItemsServiceBS.upadeItem($scope.itemId);
+    };
+    
+     // --- SET FIELD FORMS ---
+    $scope.resetForm = function () {
+        $scope.bookmarkTitleAdd = "";
+        $scope.bookmarkUrlAdd = "";
+    };
+    
+    $scope.editForm = function (id, ti, ul) {
+        $scope.itemId = id;
+        $scope.bookmarkTitleEdit = ti;
+        $scope.bookmarkUrlEdit = ul; 
     };
 });
 
@@ -38,7 +50,7 @@ myApp.controller('lunchController', function($scope, ItemsServiceLU){
     $scope.bookmarks = ItemsServiceLU.getItems();
     
     $scope.addItem = function(title, url) {
-        if(!(/^http:\/\//.test(url))){
+       if (!/^(f|ht)tps?:\/\//i.test(url)) {
             url = "http://" + url;
         }
     
@@ -53,12 +65,24 @@ myApp.controller('lunchController', function($scope, ItemsServiceLU){
         ItemsServiceLU.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
-        if(!(/^http:\/\//.test($scope.bookmarkUrl))){
-            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitleEdit;
+         if (!/^(f|ht)tps?:\/\//i.test($scope.bookmarkUrlEdit)) {
+            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrlEdit;
         }
-        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrlEdit;
         ItemsServiceLU.upadeItem($scope.itemId);
+    };
+    
+    // --- SET FIELD FORMS ---
+    $scope.resetForm = function () {
+        $scope.bookmarkTitleAdd = "";
+        $scope.bookmarkUrlAdd = "";
+    };
+    
+    $scope.editForm = function (id, ti, ul) {
+        $scope.itemId = id;
+        $scope.bookmarkTitleEdit = ti;
+        $scope.bookmarkUrlEdit = ul; 
     };
 });
 
@@ -70,7 +94,7 @@ myApp.controller('dessertController', function($scope, ItemsServiceDS){
     $scope.bookmarks = ItemsServiceDS.getItems();
     
     $scope.addItem = function(title, url) {
-        if(!(/^http:\/\//.test(url))){
+       if (!/^(f|ht)tps?:\/\//i.test(url)) {
             url = "http://" + url;
         }
     
@@ -85,12 +109,24 @@ myApp.controller('dessertController', function($scope, ItemsServiceDS){
         ItemsServiceDS.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
-        if(!(/^http:\/\//.test($scope.bookmarkUrl))){
-            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitleEdit;
+        if (!/^(f|ht)tps?:\/\//i.test($scope.bookmarkUrlEdit)) {
+            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrlEdit;
         }
-        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrlEdit;
         ItemsServiceDS.upadeItem($scope.itemId);
+    };
+    
+     // --- SET FIELD FORMS ---
+    $scope.resetForm = function () {
+        $scope.bookmarkTitleAdd = "";
+        $scope.bookmarkUrlAdd = "";
+    };
+    
+    $scope.editForm = function (id, ti, ul) {
+        $scope.itemId = id;
+        $scope.bookmarkTitleEdit = ti;
+        $scope.bookmarkUrlEdit = ul; 
     };
 });
 
@@ -102,7 +138,7 @@ myApp.controller('beverageController', function($scope, ItemsServiceBV){
     $scope.bookmarks = ItemsServiceBV.getItems();
 
     $scope.addItem = function(title, url) {
-        if(!(/^http:\/\//.test(url))){
+        if (!/^(f|ht)tps?:\/\//i.test(url)) {
             url = "http://" + url;
         }
         
@@ -117,12 +153,24 @@ myApp.controller('beverageController', function($scope, ItemsServiceBV){
         ItemsServiceBV.removeItem(id);
     };
     $scope.updateItem = function() {
-        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitle;
-        if(!(/^http:\/\//.test($scope.bookmarkUrl))){
-            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].title = $scope.bookmarkTitleEdit;
+        if (!/^(f|ht)tps?:\/\//i.test($scope.bookmarkUrlEdit)) {
+            $scope.bookmarkUrl = "http://" + $scope.bookmarkUrlEdit;
         }
-        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrl;
+        $scope.bookmarks[$scope.itemId].url = $scope.bookmarkUrlEdit;
         ItemsServiceBV.upadeItem($scope.itemId);
+    };
+    
+     // --- SET FIELD FORMS ---
+    $scope.resetForm = function () {
+        $scope.bookmarkTitleAdd = "";
+        $scope.bookmarkUrlAdd = "";
+    };
+    
+    $scope.editForm = function (id, ti, ul) {
+        $scope.itemId = id;
+        $scope.bookmarkTitleEdit = ti;
+        $scope.bookmarkUrlEdit = ul; 
     };
 });
 
