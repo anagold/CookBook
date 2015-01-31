@@ -5,6 +5,9 @@ myApp.controller('breakfastController', function($scope, ItemsServiceBS){
     $scope.category = "Breakfast";
     $scope.bookmarks = ItemsServiceBS.getItems();
     
+    $scope.cancelEditing();
+    $scope.cancelCreating();
+  
     $scope.addItem = function(title, url, id) {
         if (!/^(f|ht)tps?:\/\//i.test(url)) {
             url = "http://" + url;
@@ -48,6 +51,8 @@ myApp.controller('breakfastController', function($scope, ItemsServiceBS){
 myApp.controller('lunchController', function($scope, ItemsServiceLU){
     $scope.category = "Lunch";
     $scope.bookmarks = ItemsServiceLU.getItems();
+    $scope.cancelEditing();
+    $scope.cancelCreating();
     
     $scope.addItem = function(title, url) {
        if (!/^(f|ht)tps?:\/\//i.test(url)) {
@@ -92,6 +97,8 @@ myApp.controller('lunchController', function($scope, ItemsServiceLU){
 myApp.controller('dessertController', function($scope, ItemsServiceDS){
     $scope.category = "Dessert";
     $scope.bookmarks = ItemsServiceDS.getItems();
+    $scope.cancelEditing();
+    $scope.cancelCreating();
     
     $scope.addItem = function(title, url) {
        if (!/^(f|ht)tps?:\/\//i.test(url)) {
@@ -136,6 +143,8 @@ myApp.controller('dessertController', function($scope, ItemsServiceDS){
 myApp.controller('beverageController', function($scope, ItemsServiceBV){
     $scope.category = "Beverage";
     $scope.bookmarks = ItemsServiceBV.getItems();
+    $scope.cancelEditing();
+    $scope.cancelCreating();
 
     $scope.addItem = function(title, url) {
         if (!/^(f|ht)tps?:\/\//i.test(url)) {
@@ -175,8 +184,16 @@ myApp.controller('beverageController', function($scope, ItemsServiceBV){
 });
 
 // -------------------
-// ------ Home -------
+// ------ Auth -------
 // -------------------
-myApp.controller('homeController', function($scope, ItemService) {
-   
-});
+myApp.controller("authCtrl", ["$scope", "$firebaseAuth",
+  function($scope, $firebaseAuth) {
+    var ref = new Firebase("https://<your-firebase>.firebaseio.com/");
+    var auth = $firebaseAuth(ref);
+    auth.$authWithOAuthPopup("github").then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed: ", error);
+    });
+  }
+]);

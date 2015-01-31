@@ -15,7 +15,7 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     $scope.isUpdated = false;
     $scope.itemId = null;
     
-    // --- AUTHORIZATION ---
+    /* --- AUTHORIZATION ---
     $scope.register = function () {
         var ref = new Firebase("https://anagold.firebaseio.com/");
         ref.createUser({
@@ -28,31 +28,7 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
                 console.log("Error creating user: ", error);
             }
         });
-    };
-    
-    
-    /*$scope.SignIn = function($scope) {
-        var username = $scope.user.email;
-        var password = $scope.user.password;
-        
-        var firebaseObj = null;
-        $scope.getRef = function () {
-            firebaseObj = ItemService.getRef();
-        }
-        var loginObj = $firebaseSimpleLogin(firebaseObj);
-        
-        loginObj.$login('password', {
-            email: username,
-            password: password
-        })
-        .then(function(user) {
-            // Success callback
-            console.log('Authentication successful');
-        }, function(error) {
-            // Failure callback
-            console.log('Authentication failure');
-        });
-    }*/
+    };*/
     
     // --- SHOW AND HIDE DIVS IN INDEX ---
     $scope.hideSign = true;
@@ -76,25 +52,30 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     // --- SHOW AND HIDE DIVS IN SUBPAGE ---
     $scope.hideEdit = true;
     $scope.hideCreate = true;
+    //$scope.isDisabled = true;
     
     $scope.showEditing = function() {
         $scope.hideEdit = false;
         $scope.hideCreate = true;
+        //$scope.isDisabled = true;
     };
     
     $scope.showCreating = function() {
         $scope.hideEdit = true;
         $scope.hideCreate = false;
+        //$scope.isDisabled = true;
     };
     
     $scope.cancelEditing = function() {
         $scope.hideEdit = true;
         $scope.hideCreate = true;
+        //$scope.isDisabled = false;
     };
     
     $scope.cancelCreating = function() {
         $scope.hideEdit = true;
         $scope.hideCreate = true;
+       // $scope.isDisabled = false;
     };
 });
 
