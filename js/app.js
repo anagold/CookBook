@@ -1,5 +1,4 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
-
 myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, ItemsServiceLU, ItemsServiceDS, ItemsServiceBV) {
     $scope.categories = [
         {"id": 0, "url": "#home", "name": "Home", "icon": "glyphicon-home"},
@@ -11,7 +10,8 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
 
     $scope.placeHolderTitle = "Enter bookmark title...";
     $scope.placeHolderUrl = "Enter bookmark url...";
-
+    
+    //$scope.isNotLogged = true;
     $scope.isUpdated = false;
     $scope.itemId = null;
     
@@ -30,8 +30,19 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
         });
     };*/
     
+    // --- SIGNING IN ---
+    /*$scope.signIn = function () {
+        $scope.isNotLogged = false;
+        alert($scope.isNotLogged);
+    }
+    
+    // --- LOGOUT --- 
+    $scope.logout = function () {
+        $scope.isNotLogged = true;
+    }
+    
     // --- SHOW AND HIDE DIVS IN INDEX ---
-    $scope.hideSign = true;
+    $scope.hideSign = false;
     $scope.hideRegi = true;
     
     $scope.showSign = function() {
@@ -47,7 +58,7 @@ myApp.controller('mainCtrl', function($scope, ItemsService, ItemsServiceBS, Item
     $scope.cancelReSi = function() {
         $scope.hideSign = true;
         $scope.hideRegi = true;
-    };
+    };*/
     
     // --- SHOW AND HIDE DIVS IN SUBPAGE ---
     $scope.hideEdit = true;

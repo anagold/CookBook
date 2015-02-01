@@ -184,16 +184,25 @@ myApp.controller('beverageController', function($scope, ItemsServiceBV){
 });
 
 // -------------------
-// ------ Auth -------
+// ------ Home -------
 // -------------------
+myApp.controller('homeController', function($scope, ItemsService){
+
+});
+
+// -------------------
+// ------ Auth -------
+/* -------------------
 myApp.controller("authCtrl", ["$scope", "$firebaseAuth",
-  function($scope, $firebaseAuth) {
-    var ref = new Firebase("https://<your-firebase>.firebaseio.com/");
-    var auth = $firebaseAuth(ref);
-    auth.$authWithOAuthPopup("github").then(function(authData) {
-      console.log("Logged in as:", authData.uid);
-    }).catch(function(error) {
-      console.error("Authentication failed: ", error);
+ var ref = new Firebase("https://<your-firebase>.firebaseio.com");
+ ref.createUser({
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+    }, function(error) {
+    if (error === null) {
+        console.log("User created successfully");
+    } else {
+        console.log("Error creating user:", error);
+    }
     });
-  }
-]);
+]);*/

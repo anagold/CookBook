@@ -1,12 +1,64 @@
-<div ng-controller="mainCtrl">
+<div ng-controller='homeController'>
     <div class="jumbotron">
         <h1><span class="logoSubPage">Home ...</span></h1>
-        <h3 class="smallLogoSubPage"> ... place where you have all your recipies in one place!</h3>
+        <h3 class="smallLogoSubPage"> ... place where you have all your recipe in one place!</h3>
     </div>
     <div class="page-header">
-        <h4><span class="glyphicon glyphicon-tag" class="welcomeDiv"></span> Welcome in <b>Cookbook</b> - app which make storing your recipies much easier!</h4>
+        <h4><span class="glyphicon glyphicon-tag" class="welcomeDiv"></span> Welcome in <b>Cookbook</b> - storing your recipe is now much easier</h4>
     </div>
-   
+    <div class="jumbotron" id="addDiv">
+        <h3>Choose category in the menu to get to the recipe</h3>
+    </div>
+    
+  
+   <!-- <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        <div class="row ">
+            <div class="row" id="addDiv">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="showSign();"><span class="glyphicon glyphicon-ok-sign"></span>  Sign In</button></li>    
+                </ul>
+            </div>
+             <div class="row" ng-hide="hideSign">
+                <form class="form-signin jumbotron" id="addDiv" role="form">
+                    <label for="emailSign">Email</label>
+                    <input type="email" class="form-control" id="emailSign" placeholder="Email address"  autofocus=""><p></p>
+                    <label for="passwordSign">Password</label>
+                    <input type="password" class="form-control" id="passwordSign" placeholder="Password" ><p></p>
+                    <div class="col-lg-6">
+                        <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="signIn()">Sign in</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p></p>
+        <div class="row ">
+            <div class="row" id="addDiv">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><button class="btn btn-lg btn-default btn-block" type="submit" ng-click="showRegi();"><span class="glyphicon glyphicon-paperclip"></span>  Register</button></li>
+                </ul>
+            </div>
+            <div class="row" ng-hide="hideRegi">
+                <form class="form-signin jumbotron" id="addDiv" role="form">
+                    <label for="emailRegi">Email</label>
+                    <input type="email" class="form-control" ng-model="email" id="emailRegi" placeholder="Email address"  autofocus=""><p></p>
+                    <label for="passwordRegi">Password</label>
+                    <input type="password" class="form-control" ng-model="password" id="passwordRegi" placeholder="Password" ><p></p>
+                    <label for="confirmRegi">Confirm password</label>
+                    <input type="password" class="form-control" id="confirmRegi" placeholder="Confirm password" ><p></p>
+                    <div class="col-lg-6">
+                        <button class="btn btn-sm btn-success btn-block" type="submit" ng-click="signIn()">Register</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div> -->
 </div>
 
 

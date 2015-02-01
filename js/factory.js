@@ -1,5 +1,5 @@
 myApp.factory('ItemsService', function($firebase) {
-    var ref = new Firebase("https://anagold.firebaseio.com/");
+    var ref = new Firebase("https://appcookbook.firebaseio.com/");
     var sync = $firebase(ref);
     var bookmarks = sync.$asArray();
     
@@ -32,7 +32,7 @@ myApp.factory('ItemsService', function($firebase) {
 // ---- Breakfast ----
 // -------------------
 myApp.factory('ItemsServiceBS', function($firebase) {
-    var ref = new Firebase("https://anagold.firebaseio.com/breakfast/");
+    var ref = new Firebase("https://appcookbook.firebaseio.com/breakfast/");
     var sync = $firebase(ref);
     var bookmarks = sync.$asArray();
     
@@ -65,7 +65,7 @@ myApp.factory('ItemsServiceBS', function($firebase) {
 // ------ Lunch ------
 // -------------------
 myApp.factory('ItemsServiceLU', function($firebase) {
-    var ref = new Firebase("https://anagold.firebaseio.com/lunch/");
+    var ref = new Firebase("https://appcookbook.firebaseio.com/lunch/");
     var sync = $firebase(ref);
     var bookmarks = sync.$asArray();
     
@@ -98,7 +98,7 @@ myApp.factory('ItemsServiceLU', function($firebase) {
 // ----- Dessert -----
 // -------------------
 myApp.factory('ItemsServiceDS', function($firebase) {
-    var ref = new Firebase("https://anagold.firebaseio.com/dessert/");
+    var ref = new Firebase("https://appcookbook.firebaseio.com/dessert/");
     var sync = $firebase(ref);
     var bookmarks = sync.$asArray();
     
@@ -131,7 +131,7 @@ myApp.factory('ItemsServiceDS', function($firebase) {
 // ---- Beverage -----
 // -------------------
 myApp.factory('ItemsServiceBV', function($firebase) {
-    var ref = new Firebase("https://anagold.firebaseio.com/beverage/");
+    var ref = new Firebase("https://appcookbook.firebaseio.com/beverage/");
     var sync = $firebase(ref);
     var bookmarks = sync.$asArray();
     

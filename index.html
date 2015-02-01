@@ -8,7 +8,7 @@
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <title>Aplikacja AngularJs</title>
     </head>
-    <body ng-controller='mainCtrl' ng-controller="authCtrl">
+    <body ng-controller='mainCtrl'>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2">
@@ -20,53 +20,17 @@
                         </p>
                     </div>
                     <div class="row">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li ng-repeat="category in categories">
-                                <a href="{{category.url}}" id="menu"><span class="glyphicon {{category.icon}}"></span>{{ "    " + category.name}}</a>
-                            </li>
-                        </ul>
+                        <div class="row">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li ng-repeat="category in categories">
+                                    <a href="{{category.url}}" id="menu"><span class="glyphicon {{category.icon}}"></span>{{ "    " + category.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--<div class="row jumbotron" id="addDiv">
+                           <button class="btn btn-sm btn-default btn-block" type="submit" ng-click="logout();"><span class="glyphicon glyphicon-off"></span>  Logout</button>
+                        </div>-->
                     </div>
-                    <!------------>
-                    <!-- LOGIN --->
-                    <!------------>
-                    <div class="row jumbotron" id="addDiv">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><button class="btn btn-sm btn-default btn-block" type="submit" ng-click="showRegi();"><span class="glyphicon glyphicon-paperclip"></span>  Register</button></li>
-                            <li><button class="btn btn-sm btn-default btn-block" type="submit" ng-click="showSign();"><span class="glyphicon glyphicon-ok-sign"></span>  Sign In</button></li>    
-                            <li><button class="btn btn-sm btn-default btn-block" type="submit" ng-click="cancelReSi();"><span class="glyphicon glyphicon-off"></span>  Logout</button></li>
-                        </ul>
-                    </div>
-                    <div class="row jumbotron" ng-hide="hideRegi">
-                        <form class="form-signin" role="form">
-                            <label for="emailRegi">Email</label>
-                            <input type="email" class="form-control" ng-model="email" id="emailRegi" placeholder="Email address"  autofocus=""><p></p>
-                            <label for="passwordRegi">Password</label>
-                            <input type="password" class="form-control" ng-model="password" id="passwordRegi" placeholder="Password" ><p></p>
-                            <label for="confirmRegi">Confirm password</label>
-                            <input type="password" class="form-control" id="confirmRegi" placeholder="Confirm password" ><p></p>
-                            <div class="col-lg-6">
-                                <button class="btn btn-sm btn-success btn-block" type="submit" ng-click="register()">Register</button>
-                            </div>
-                            <div class="col-lg-6">
-                                <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
-                            </div>
-                        </form>
-                    </div> 
-                    <div class="row jumbotron" ng-hide="hideSign">
-                        <form class="form-signin" role="form">
-                            <label for="emailSign">Email</label>
-                            <input type="email" class="form-control" id="emailSign" placeholder="Email address"  autofocus=""><p></p>
-                            <label for="passwordSign">Password</label>
-                            <input type="password" class="form-control" id="passwordSign" placeholder="Password" ><p></p>
-                            <div class="col-lg-6">
-                                <button class="btn btn-sm btn-primary btn-block" type="submit" ng-click="">Sign in</button>
-                            </div>
-                            <div class="col-lg-6">
-                                <button class="btn btn-sm btn-default btn-block" ng-click="cancelReSi()">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- ----- --->
                 </div>
                 
                 <div class="col-lg-10">
